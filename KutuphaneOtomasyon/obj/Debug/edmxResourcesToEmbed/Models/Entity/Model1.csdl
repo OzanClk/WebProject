@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LIBRARYDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TBL_ADMIN">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBL_BOOKLİST">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_name" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="book_isbn" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="writer_name" Type="Int32" />
+    <Property Name="number_of_pages" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="book_state" Type="Boolean" />
+    <NavigationProperty Name="TBL_WRITER" Relationship="Self.FK_TBL_BOOKLİST_TBL_WRITER1" FromRole="TBL_BOOKLİST" ToRole="TBL_WRITER" />
+    <NavigationProperty Name="TBL_BORROW_BOOK" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_BOOKLİST" FromRole="TBL_BOOKLİST" ToRole="TBL_BORROW_BOOK" />
+    <NavigationProperty Name="TBL_DELAY" Relationship="Self.FK_TBL_DELAY_TBL_BOOKLİST" FromRole="TBL_BOOKLİST" ToRole="TBL_DELAY" />
+  </EntityType>
+  <EntityType Name="TBL_BORROW_BOOK">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="book_name" Type="Int32" />
+    <Property Name="user_name" Type="Int32" />
+    <Property Name="borrow_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="give_back_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="TBL_BOOKLİST" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_BOOKLİST" FromRole="TBL_BORROW_BOOK" ToRole="TBL_BOOKLİST" />
+    <NavigationProperty Name="TBL_BORROW_BOOK1" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK1" FromRole="TBL_BORROW_BOOK" ToRole="TBL_BORROW_BOOK1" />
+    <NavigationProperty Name="TBL_BORROW_BOOK2" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK1" FromRole="TBL_BORROW_BOOK1" ToRole="TBL_BORROW_BOOK" />
+    <NavigationProperty Name="TBL_USER" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_USER" FromRole="TBL_BORROW_BOOK" ToRole="TBL_USER" />
+    <Property Name="date_of_return" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="TBL_CATEGORY">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TBL_DELAY">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="Int32" />
+    <Property Name="book_name" Type="Int32" />
+    <Property Name="delay_time" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TBL_BOOKLİST" Relationship="Self.FK_TBL_DELAY_TBL_BOOKLİST" FromRole="TBL_DELAY" ToRole="TBL_BOOKLİST" />
+  </EntityType>
+  <EntityType Name="TBL_USER">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="borrow_book_id" Type="Int32" />
+    <Property Name="user_type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TBL_BORROW_BOOK" Relationship="Self.FK_TBL_BORROW_BOOK_TBL_USER" FromRole="TBL_USER" ToRole="TBL_BORROW_BOOK" />
+  </EntityType>
+  <EntityType Name="TBL_WRITER">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="writer_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TBL_BOOKLİST" Relationship="Self.FK_TBL_BOOKLİST_TBL_WRITER1" FromRole="TBL_WRITER" ToRole="TBL_BOOKLİST" />
+  </EntityType>
+  <Association Name="FK_TBL_BOOKLİST_TBL_WRITER1">
+    <End Role="TBL_WRITER" Type="Self.TBL_WRITER" Multiplicity="0..1" />
+    <End Role="TBL_BOOKLİST" Type="Self.TBL_BOOKLİST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_WRITER">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TBL_BOOKLİST">
+        <PropertyRef Name="writer_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_BORROW_BOOK_TBL_BOOKLİST">
+    <End Role="TBL_BOOKLİST" Type="Self.TBL_BOOKLİST" Multiplicity="0..1" />
+    <End Role="TBL_BORROW_BOOK" Type="Self.TBL_BORROW_BOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BOOKLİST">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TBL_BORROW_BOOK">
+        <PropertyRef Name="book_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_DELAY_TBL_BOOKLİST">
+    <End Role="TBL_BOOKLİST" Type="Self.TBL_BOOKLİST" Multiplicity="0..1" />
+    <End Role="TBL_DELAY" Type="Self.TBL_DELAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BOOKLİST">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TBL_DELAY">
+        <PropertyRef Name="book_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK1">
+    <End Role="TBL_BORROW_BOOK" Type="Self.TBL_BORROW_BOOK" Multiplicity="1" />
+    <End Role="TBL_BORROW_BOOK1" Type="Self.TBL_BORROW_BOOK" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_BORROW_BOOK">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TBL_BORROW_BOOK1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_BORROW_BOOK_TBL_USER">
+    <End Role="TBL_USER" Type="Self.TBL_USER" Multiplicity="0..1" />
+    <End Role="TBL_BORROW_BOOK" Type="Self.TBL_BORROW_BOOK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_USER">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TBL_BORROW_BOOK">
+        <PropertyRef Name="user_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LIBRARYDBEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TBL_ADMIN" EntityType="Self.TBL_ADMIN" />
+    <EntitySet Name="TBL_BOOKLİST" EntityType="Self.TBL_BOOKLİST" />
+    <EntitySet Name="TBL_BORROW_BOOK" EntityType="Self.TBL_BORROW_BOOK" />
+    <EntitySet Name="TBL_CATEGORY" EntityType="Self.TBL_CATEGORY" />
+    <EntitySet Name="TBL_DELAY" EntityType="Self.TBL_DELAY" />
+    <EntitySet Name="TBL_USER" EntityType="Self.TBL_USER" />
+    <EntitySet Name="TBL_WRITER" EntityType="Self.TBL_WRITER" />
+    <AssociationSet Name="FK_TBL_BOOKLİST_TBL_WRITER1" Association="Self.FK_TBL_BOOKLİST_TBL_WRITER1">
+      <End Role="TBL_WRITER" EntitySet="TBL_WRITER" />
+      <End Role="TBL_BOOKLİST" EntitySet="TBL_BOOKLİST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_BORROW_BOOK_TBL_BOOKLİST" Association="Self.FK_TBL_BORROW_BOOK_TBL_BOOKLİST">
+      <End Role="TBL_BOOKLİST" EntitySet="TBL_BOOKLİST" />
+      <End Role="TBL_BORROW_BOOK" EntitySet="TBL_BORROW_BOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_DELAY_TBL_BOOKLİST" Association="Self.FK_TBL_DELAY_TBL_BOOKLİST">
+      <End Role="TBL_BOOKLİST" EntitySet="TBL_BOOKLİST" />
+      <End Role="TBL_DELAY" EntitySet="TBL_DELAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK1" Association="Self.FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK1">
+      <End Role="TBL_BORROW_BOOK" EntitySet="TBL_BORROW_BOOK" />
+      <End Role="TBL_BORROW_BOOK1" EntitySet="TBL_BORROW_BOOK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_BORROW_BOOK_TBL_USER" Association="Self.FK_TBL_BORROW_BOOK_TBL_USER">
+      <End Role="TBL_USER" EntitySet="TBL_USER" />
+      <End Role="TBL_BORROW_BOOK" EntitySet="TBL_BORROW_BOOK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

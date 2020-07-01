@@ -1,0 +1,45 @@
+﻿@using KutuphaneOtomasyon.Models.Entity
+@model List<TBL_BORROW_BOOK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>ID</th>
+        <th>BOOK NAME</th>
+        <th>USER NAME</th>
+        <th>USER ID</th>
+        <th>BORROW DATE</th>
+        <th>GIVE BACK DATE</th>
+
+    </tr>
+
+
+    @foreach (var userList in Model)
+    {
+
+        <tr>
+
+            <td>@userList.id</td>
+            <td>@userList.TBL_BOOKLİST.book_name</td>
+            <td>@userList.TBL_USER.user_name</td>
+            <td>@userList.TBL_USER.id</td>
+            <td>@userList.borrow_date</td>
+            <td>@userList.give_back_date</td>
+
+
+        </tr>
+    }
+
+
+
+
+
+
+</table>

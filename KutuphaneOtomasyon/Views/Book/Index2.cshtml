@@ -1,0 +1,58 @@
+﻿@using KutuphaneOtomasyon.Models.Entity
+@model List<TBL_BOOKLİST>
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index2", "Book", FormMethod.Get))
+
+{
+    <div style="margin-top:20px">
+
+        <b>Aranacak Kitap Bilgisi:</b> @Html.TextBox("book_info")
+        <input type="submit" value="Ara" />
+
+
+    </div>
+
+}
+
+
+
+
+
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>BOOK ID</th>
+        <th>BOOK NAME</th>
+        <th>BOOK ISBN</th>
+        <th>NUMBER OF PAGE</th>
+        <th>BOOK STATE</th>
+    </tr>
+
+
+    @foreach (var book in Model)
+    {
+
+        <tr>
+
+            <td>@book.id</td>
+            <td>@book.book_name</td>
+            <td>@book.book_isbn</td>
+            <td>@book.number_of_pages</td>
+            <td>@book.book_state</td>
+        </tr>
+
+
+    }
+
+
+
+
+
+</table>
+

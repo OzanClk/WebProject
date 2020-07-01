@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b79ae0593da4a82ac8ad765115f03d3" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="LIBRARYDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_ADMIN" Width="1.5" PointX="8.125" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_BOOKLİST" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_BORROW_BOOK" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_CATEGORY" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_DELAY" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_WRITER" Width="1.5" PointX="1.5" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_BOOKLİST_TBL_WRITER" ManuallyRouted="false" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_BORROW_BOOK_TBL_BOOKLİST" ManuallyRouted="false" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_DELAY_TBL_BOOKLİST" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_USER" Width="1.5" PointX="0.5" PointY="4.25" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_BORROW_BOOK_TBL_USER" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_DELAY_TBL_USER" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_BORROW_BOOK_TBL_USER1" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_USER_TBL_BORROW_BOOK" />
+        <AssociationConnector Association="LIBRARYDBModel.FK_TBL_BORROW_BOOK_TBL_BORROW_BOOK" />
+        </Diagram>
+      <Diagram DiagramId="e274da8d80d646d0848e23b80dfbb69a" Name="Diagram2" >
+        <EntityTypeShape EntityType="LIBRARYDBModel.TBL_USER" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

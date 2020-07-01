@@ -1,0 +1,32 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_BOOKLİST
+@{
+    ViewBag.Title = "getBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("BookUpdate", "Book", FormMethod.Post))
+{
+
+    <div class="form-control" style="margin-top:20px">
+
+        <label>BOOK ID</label>
+        @Html.TextBoxFor(b => b.id)
+        <label>BOOK NAME</label>
+        @Html.TextBoxFor(b => b.book_name)
+        <label>BOOK ISBN</label>
+        @Html.TextBoxFor(b => b.book_isbn)
+        <label>PAGE OF NUMBER</label>
+        @Html.TextBoxFor(b => b.number_of_pages)
+
+    </div>
+
+    <button class="btn btn-success">Update</button>
+
+
+
+
+
+
+}

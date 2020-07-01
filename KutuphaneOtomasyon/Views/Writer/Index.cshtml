@@ -1,0 +1,37 @@
+﻿@using KutuphaneOtomasyon.Models.Entity;
+@model List<TBL_WRITER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Writers</h2>
+
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>WRITER ID</th>
+        <th>WRITER NAME</th>
+
+    </tr>
+
+
+
+    @foreach (var writers in Model)
+    {
+        <tr>
+
+
+            <td>@writers.id</td>
+            <td>@writers.writer_name</td>
+            <td><a href="/Writer/DeleteWriter/@writers.id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Writer/getWriter/@writers.id" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+
+
+</table>
+
+<a class="btn btn-primary" href="/Writer/AddWriter">New Writer Add</a>

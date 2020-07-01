@@ -1,0 +1,44 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_BORROW_BOOK
+@{
+    ViewBag.Title = "TakeBook";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+
+
+    <div style="margin-top:10px">
+        <label>USER ID</label>
+        @Html.TextBoxFor(user => user.user_name, new { @class = "form-control" })
+
+    </div>
+    <div>
+
+        <label>BOOK ID</label>
+        @Html.TextBoxFor(user => user.book_name, new { @class = "form-control" })
+
+    </div>
+
+    <div style="margin-top:10px">
+        <label>BORROW DATE</label>
+        <input type="text" class="form-control" name="borrow_date" value="@DateTime.Now.ToShortDateString()" />
+    </div>
+
+    <div style="margin-top:10px">
+        <label>GIVE BACK DATE </label>
+        <input type="text" class="form-control" name="give_back_date" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    </div>
+
+    <div style="margin-top:10px">
+
+        <button class="btn btn-primary">Take Book</button>
+
+    </div>
+
+    <h1>@ViewBag.kayıt</h1>
+
+
+</form>
+
+<h3 class="alert">@ViewBag.Hata1</h3>

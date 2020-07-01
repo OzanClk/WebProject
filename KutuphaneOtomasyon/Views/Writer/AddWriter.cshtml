@@ -1,0 +1,24 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_WRITER
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>AddWriter</h2>
+
+<form class="form-group" method="post">
+
+    <div style="margin-top:15px">
+        <label>WRİTER ID</label>
+        @Html.TextBoxFor(writer_id => writer_id.id, new { @class = "form-control" })
+        <label>WRITER NAME</label>
+        @Html.TextBoxFor(writer_name => writer_name.writer_name, new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:20px"></div>
+
+    <button class="btn btn-primary">Add Writer</button>
+
+
+</form>
+

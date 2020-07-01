@@ -1,0 +1,29 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_BOOKLİST
+@{
+    ViewBag.Title = "AddBook2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    <form class="form-group" method="post">
+
+        <label>@ViewBag.ISBN</label>
+
+        <div style="margin-top:15px">
+
+            <label>BOOK NAME</label>
+            @Html.TextBoxFor(book_name => book_name.book_name, new { @class = "form-control" })
+            <label>BOOK ISBN</label>
+            <input class="form-control" id ="book_isbn" name="book_isbn" value=@ViewBag.metin />
+            <label>NUMBER OF PAGE</label>
+            @Html.TextBoxFor(number_of_page => number_of_page.number_of_pages, new { @class = "form-control" })
+
+        </div>
+
+        <div style="margin-top:15px">
+
+            <button class="btn btn-info" id="btn1">Add Book</button>
+
+        </div>
+
+
+    </form>

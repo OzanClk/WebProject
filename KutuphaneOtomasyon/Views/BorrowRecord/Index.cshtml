@@ -1,0 +1,17 @@
+﻿@using KutuphaneOtomasyon.Models.Entity
+@model List<TBL_BORROW_BOOK>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+
+@foreach (var book in Model)
+{
+
+
+    <td><a href="/BorrowRecord/MyBooks/@book.book_name" class="btn btn-group" style="background-color:black">Kitaplarım</a></td>
+
+}

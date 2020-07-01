@@ -1,0 +1,62 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_BOOKLİST
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div class="container">
+    <fieldset>
+
+        @using (Html.BeginForm("submit", "Book", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label>Kitap Fotoğrafını Yükleyiniz</label>
+                <input type="file" class="form-control" name="file" />
+                <span class="help-block">Kitap Fotoğrafını bu alana yükleyiniz</span>
+            </div>
+            <input type="submit" class="btn btn-default" value="Upload Image" name="submit" />
+        }
+
+    </fieldset>
+
+    @if (ViewBag.Result)
+    {
+        <fieldset>
+            <legend>Results Obtained:</legend>
+            <div class="form-group">
+                <label>Result</label>
+                <textarea class="form-control" readonly rows="10">@ViewBag.res</textarea>
+            </div>
+        </fieldset>
+
+    }
+
+
+
+</div>
+
+
+
+@using (Html.BeginForm("AddBook2", "Book", FormMethod.Post))
+{
+    <div>
+
+        <label>BOOK NAME</label>
+        @Html.TextBoxFor(b => b.book_name)
+        <label>BOOK ISBN</label>
+        <input type="text" class="form-group" value=@ViewBag.metin name="book_isbn" />
+        <label>PAGE OF NUMBER</label>
+        @Html.TextBoxFor(b => b.number_of_pages)
+        <input type="hidden" name="book_state" value="True" />
+
+
+    </div>
+    <div>
+
+        <button class="btn btn-success" style="margin-top:10; color:#000000">AddBook</button>
+    </div>
+
+
+
+}

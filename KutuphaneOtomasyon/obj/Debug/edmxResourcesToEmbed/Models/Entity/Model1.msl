@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LIBRARYDBModelStoreContainer" CdmEntityContainer="LIBRARYDBEntities2">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_ADMIN">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_ADMIN">
+        <MappingFragment StoreEntitySet="TBL_ADMIN">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_BOOKLİST">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_BOOKLİST">
+        <MappingFragment StoreEntitySet="TBL_BOOKLİST">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="book_isbn" ColumnName="book_isbn" />
+          <ScalarProperty Name="writer_name" ColumnName="writer_name" />
+          <ScalarProperty Name="number_of_pages" ColumnName="number_of_pages" />
+          <ScalarProperty Name="book_state" ColumnName="book_state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_BORROW_BOOK">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_BORROW_BOOK">
+        <MappingFragment StoreEntitySet="TBL_BORROW_BOOK">
+          <ScalarProperty Name="date_of_return" ColumnName="date_of_return" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="borrow_date" ColumnName="borrow_date" />
+          <ScalarProperty Name="give_back_date" ColumnName="give_back_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_CATEGORY">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_CATEGORY">
+        <MappingFragment StoreEntitySet="TBL_CATEGORY">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_DELAY">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_DELAY">
+        <MappingFragment StoreEntitySet="TBL_DELAY">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="delay_time" ColumnName="delay_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_USER">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_USER">
+        <MappingFragment StoreEntitySet="TBL_USER">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="borrow_book_id" ColumnName="borrow_book_id" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBL_WRITER">
+      <EntityTypeMapping TypeName="LIBRARYDBModel.TBL_WRITER">
+        <MappingFragment StoreEntitySet="TBL_WRITER">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="writer_name" ColumnName="writer_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

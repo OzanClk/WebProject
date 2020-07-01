@@ -1,0 +1,31 @@
+﻿@using KutuphaneOtomasyon.Models.Entity;
+@model List<TBL_CATEGORY>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h1>Categories</h1>
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>KATEGORI ID</th>
+        <th>KATEGORI NAME</th>
+    </tr>
+
+
+    @foreach (var ctg in Model)
+    {
+        <tr>
+            <td>@ctg.id</td>
+            <td>@ctg.ad</td>
+            <td><a href="/Category/CategoryDelete/@ctg.id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Category/getCategory/@ctg.id" class="btn btn-success">Update</a></td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Category/CategoryAdd/" class="btn btn-primary">Add New Category</a>

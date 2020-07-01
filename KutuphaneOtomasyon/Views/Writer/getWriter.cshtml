@@ -1,0 +1,35 @@
+﻿@model KutuphaneOtomasyon.Models.Entity.TBL_WRITER
+@{
+    ViewBag.Title = "getWriter";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("WriterUpdate", "Writer", FormMethod.Post))
+{
+
+
+    <div class="form-group">
+
+        <label>WRITER ID</label>
+        @Html.TextBoxFor(writer=>writer.id)
+        <label>WRITER NAME</label>
+        @Html.TextBoxFor(writer=>writer.writer_name)
+
+    </div>
+
+    <button class="btn btn-success">Update</button> 
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
